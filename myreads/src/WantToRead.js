@@ -18,7 +18,6 @@ class WantToRead extends Component {
         books: []
     }
 
-
   render() {
     return (
       <div className="WantToRead">
