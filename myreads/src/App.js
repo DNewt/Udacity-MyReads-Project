@@ -4,6 +4,7 @@ import './App.css'
 import CurrentlyReading from './CurrentlyReading'
 import WantToRead from './WantToRead'
 import Read from './Read'
+import * as BooksAPI from './BooksAPI'
 
 class BooksApp extends React.Component {
   state = {
@@ -14,6 +15,12 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     showSearchPage: false
+  }
+
+  refreshShelves(id, shelf){
+    BooksAPI.update(id, shelf).then(response =>{  
+      this.state.refresh = true;
+    })
   }
 
   render() {
@@ -48,13 +55,13 @@ class BooksApp extends React.Component {
             <div className="list-books-content">
               <div>
                 <div className="bookshelf">
-                  <CurrentlyReading />
+                  <CurrentlyReading refreshShelves={this.refreshShelves} />
                 </div>
                 <div className="bookshelf">
-                  <WantToRead />
+                  <WantToRead refreshShelves={this.refreshShelves}/>
                 </div>
                 <div className="bookshelf">
-                  <Read />
+                  <Read refreshShelves={this.refreshShelves}/>
                 </div>
               </div>
             </div>

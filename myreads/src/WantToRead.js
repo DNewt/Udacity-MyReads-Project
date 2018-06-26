@@ -26,7 +26,7 @@ class WantToRead extends Component {
             <ol className="books-grid">
             {this.state.books.map((book) => 
                 <li> 
-                    <Book title={book.title} author={book.authors[0]} url={'url(' + book.imageLinks.thumbnail +')'}/>
+                    <Book refreshShelves={this.props.refreshShelves} title={book.title} author={book.authors[0]} url={'url(' + book.imageLinks.thumbnail +')'}/>
                 </li>
              )}  
             </ol>
