@@ -19,9 +19,14 @@ class BooksApp extends React.Component {
 
   refreshShelves(id, shelf){
     BooksAPI.update(id, shelf).then(response =>{  
-      this.state.refresh = true;
+      this.setState({
+        refresh: true
+      })
     })
   }
+
+
+
 
   render() {
     return (
