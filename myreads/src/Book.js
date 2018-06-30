@@ -14,7 +14,6 @@ class Book extends Component {
     
 
     render() {
-        console.log("Creating book ----------------------------------------------------------------------")
         return (
             <div className="book">
                 <div className="book-top">

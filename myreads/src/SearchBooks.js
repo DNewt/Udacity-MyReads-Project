@@ -32,13 +32,9 @@ class SearchBooks extends React.Component {
                     <div className="search-books-results">
                         <ol className="books-grid">
                             {
-                                this.state.books.map((book) => {
-                                    console.log("===================================================")
-                                    console.log(book),
-                                    <li> 
-                                        <Book book={book} refreshShelves={this.props.refreshShelves.bind(this)} url={'url(' + book.imageLinks.thumbnail +')'}/>
-                                    </li>
-                                })
+                                this.state.books && ( this.state.books.map((book) => {
+                                    return <li> <Book book={book} refreshShelves={this.props.refreshShelves.bind(this)} url={'url(' + book.imageLinks.thumbnail +')'}/> </li>
+                                }))
 
                             }
                         </ol>
