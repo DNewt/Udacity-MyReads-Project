@@ -10,9 +10,9 @@ class Shelf extends Component {
         <div className="bookshelf-books">
         <ol className="books-grid">
         {this.props.books.filter((b) => b.shelf === this.props.shelfType).map((book) => 
-            <li> 
-                <Book book={book} refreshShelves={this.props.refreshShelves.bind(this)} url={'url(' + book.imageLinks.thumbnail +')'}/>
-            </li>
+        {
+            return <li> <Book book={book} refreshShelves={this.props.refreshShelves.bind(this)} url={'url(' + book.imageLinks.thumbnail +')'}/> </li>
+        }
         )}    
         </ol>
         </div>

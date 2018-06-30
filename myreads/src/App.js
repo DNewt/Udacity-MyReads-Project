@@ -20,12 +20,16 @@ class BooksApp extends React.Component {
     BooksAPI.getAll().then((books) => {
       this.setState({
         books: books
-      })
+      }, () => console.log(books))
+      
     })
+    
   }
 
   refreshShelves(book, shelf){
-    BooksAPI.update(book, shelf).then(this.getAllTheBooks())
+    BooksAPI.update(book, shelf).then(
+      this.getAllTheBooks()
+    )
   }
 
 
