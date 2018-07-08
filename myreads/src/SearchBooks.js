@@ -8,7 +8,7 @@ class SearchBooks extends React.Component {
         books: []
     }
 
-    constructor(props) {
+     constructor(props) {
         super(props);
         this.searchForBooks = this.searchForBooks.bind(this);
     }
@@ -33,7 +33,12 @@ class SearchBooks extends React.Component {
                         <ol className="books-grid">
                             {
                                 this.state.books && ( this.state.books.map((book) => {
-                                    return <li> <Book book={book} refreshShelves={this.props.refreshShelves.bind(this)} url={'url(' + book.imageLinks.thumbnail +')'}/> </li>
+                                    this.props.books.map((b) => {
+                                        if(book.title === b.title){
+                                            book.shelf = b.shelf;
+                                        }
+                                    })
+                                    return <li> <Book book={book} refreshShelves={this.props.refreshShelves.bind(this)} url={'url(' + book.imageLinks.thumbnail +')'}/> </li>   
                                 }))
 
                             }
